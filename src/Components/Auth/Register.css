@@ -1,0 +1,14 @@
+.content {
+  position: relative;
+}
+.img1 {
+  z-index: -1;
+  position: absolute;
+  width: 700px;
+}
+.img2 {
+  z-index: -1;
+  position: absolute;
+  width: 500px;
+  margin: -41px 100px 100px 600px;
+}
