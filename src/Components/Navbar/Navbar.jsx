@@ -6,13 +6,24 @@ import Button from "@mui/material/Button";
 import logo from "./images/logo2.png";
 import logo2 from "./images/logo.png.png";
 import logo3 from "./images/Rectangle 1 (1).png";
-import image from "./images/image 14 (1).png";
+import back1 from "./images/Ellipse 8 (1).png";
+import back2 from "./images/Ellipse 9.png";
 import { Container } from "@mui/system";
+import "./Navbar.css";
+import image1 from "./images/image 5.jpg";
+import image2 from "./images/image 10.png";
+import image3 from "./images/image 7.jpg";
+import { Link as RouterLink } from "react-router-dom";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import { CardActionArea } from "@mui/material";
+import Carousel from "./Carousel";
 
 export default function Navbar() {
   return (
     <Container color="#E5E5E5" sx={{ flexGrow: 1 }}>
-      <Box position="static">
+      <Box position="static" className="test">
         <Toolbar>
           <Typography
             variant="h4"
@@ -42,15 +53,18 @@ export default function Navbar() {
           <Button color="inherit">
             <img src={logo2} />
           </Button>
-          <Button color="inherit">
-            <img src={logo} />
-          </Button>
+
+          <RouterLink to="/login">
+            <Button color="inherit">
+              <img src={logo} />
+            </Button>
+          </RouterLink>
         </Toolbar>
       </Box>
       <Box
         sx={{
-          height: "79.99999523162842px",
-          width: "372.00000834464845px",
+          height: "79px",
+          width: "372px",
           left: "200px",
           top: "260px",
           marginLeft: "30px",
@@ -68,7 +82,7 @@ export default function Navbar() {
           <Typography
             sx={{
               fontWeight: 600,
-              height: "83.99999499320984px",
+              height: "83px",
               width: "300px",
               left: "200px",
               top: "394px",
@@ -93,6 +107,12 @@ export default function Navbar() {
             продолжить
           </Button>
         </Box>
+        <Box className="back">
+          <img src={back1} />
+        </Box>
+        <Box className="back1">
+          <img src={back2} />
+        </Box>
         <Box
           sx={{
             width: "500",
@@ -101,15 +121,63 @@ export default function Navbar() {
             marginTop: "140px",
           }}
         >
-          <img src={image} />
+          {<Carousel />}
         </Box>
       </Box>
       <Box
-        sx={{ display: "flex", justifyContent: "center", marginTop: "500px" }}
+        sx={{ display: "flex", justifyContent: "center", marginTop: "650px" }}
       >
         <Typography variant="h5" color="#1D242B" sx={{ fontWeight: "700" }}>
           Популярные запросы
         </Typography>
+      </Box>
+      <Box
+        sx={{
+          marginTop: "150px",
+          display: "flex",
+          justifyContent: "space-around",
+          flexWrap: "wrap",
+        }}
+      >
+        <Card sx={{ maxWidth: 120 }}>
+          <CardActionArea>
+            <CardMedia component="img" image={image1} alt="green iguana" />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                iPhone 8
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                19.990₽
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+        </Card>
+        <Card sx={{ maxWidth: 200, height: 800 }}>
+          <CardActionArea>
+            <CardMedia component="img" image={image3} alt="green iguana" />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                iPad
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                29.990₽
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+        </Card>
+        <Card sx={{ maxWidth: 200 }}>
+          <CardActionArea>
+            <CardMedia component="img" image={image2} alt="green iguana" />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Телевизор
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                17.990₽
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+        </Card>
       </Box>
     </Container>
   );
