@@ -1,0 +1,30 @@
+.content {
+  position: relative;
+}
+.img1 {
+  z-index: -1;
+  position: absolute;
+  width: 500px;
+}
+.img2 {
+  z-index: -1;
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  margin: -24px 100px 100px 635px;
+}
+#formId {
+  display: flex;
+  /* justify-content: space-between; */
+  margin-top: 100px;
+  /* align-self: center; */
+  /* position: relative; */
+  flex-direction: column;
+  width: 400px;
+  padding: 15px;
+  margin: 5px;
+  margin-left: 400px;
+}
+#PaymentForm {
+  margin-top: 80px;
+}
