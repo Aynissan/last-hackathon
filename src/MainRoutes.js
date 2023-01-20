@@ -4,6 +4,7 @@ import Login from "./Components/Auth/Login";
 import Register from "./Components/Auth/Register";
 import PayVisa from "./Components/Cart/PayVisa";
 import Home from "./Components/Home";
+import AddProd from "./Components/Product/AddProd";
 import Product from "./Components/Product/Product";
 
 const MainRoutes = () => {
@@ -14,6 +15,7 @@ const MainRoutes = () => {
       <Route path="/register" element={<Register />} />
       <Route path="/payvisa" element={<PayVisa />} />
       <Route path="/prod" element={<Product />} />
+      <Route path="/adminpage" element={<AddProd />} />
     </Routes>
   );
 };
