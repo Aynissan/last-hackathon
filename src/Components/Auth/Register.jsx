@@ -53,9 +53,11 @@ const Login = () => {
               alignItems: "center",
             }}
           ></Box>
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-            <LockOutlinedIcon />
-          </Avatar>
+          <RouterLink to="/adminpage">
+            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+              <LockOutlinedIcon />
+            </Avatar>
+          </RouterLink>
           <Typography
             component="h1"
             variant="h5"
