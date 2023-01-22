@@ -42,9 +42,7 @@ export default function Register() {
   const { register } = useContext(authContext);
 
   const [email, setEmail] = React.useState("");
-
   const [password, setPassword] = React.useState("");
-
   const [confirmPassword, setConfirmPassword] = React.useState("");
   const [codeword, setCodeWord] = React.useState("");
   const [phone_number, setphone_number] = React.useState("");
@@ -64,7 +62,7 @@ export default function Register() {
     let formData = new FormData();
     formData.append("email", email);
     formData.append("password", password);
-    formData.append("password_repeat", confirmPassword);
+    formData.append("confirmPassword", confirmPassword);
     formData.append("codeword", codeword);
     formData.append("phone_number", phone_number);
     register(formData);
@@ -101,7 +99,7 @@ export default function Register() {
             </Typography>
             <Box
               component="form"
-              // onSubmit={handleSubmit}
+              onSubmit={handleSubmit}
               noValidate
               sx={{ mt: 1 }}
             >
@@ -112,7 +110,7 @@ export default function Register() {
                 id="email"
                 label="Email Address"
                 name="email"
-                autoComplete="email"
+                // autoComplete="email"
                 autoFocus
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -126,7 +124,7 @@ export default function Register() {
                 label="Password"
                 type="password"
                 id="password"
-                autoComplete="current-password"
+                // autoComplete="current-password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -134,20 +132,20 @@ export default function Register() {
                 margin="normal"
                 required
                 fullWidth
-                name="password"
+                name="confirmPassword"
                 label="Confirm Password"
                 type="password"
-                id="password"
+                id="confirm_password"
                 autoComplete="current-password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
               />
               <TextField
                 margin="normal"
                 required
                 fullWidth
                 name="codeword"
-                label="CodeWord"
+                label="Code Word"
                 id="codeword"
                 // autoComplete="current-password"
                 value={codeword}
