@@ -3,8 +3,10 @@ import { Route, Routes } from "react-router-dom";
 import Login from "./Components/Auth/Login";
 import Register from "./Components/Auth/Register";
 import PayVisa from "./Components/Cart/PayVisa";
-import Home from "./Components/Home";
+
+import Home from "./Components/Home/Home";
 import AddProd from "./Components/Product/AddProd";
+
 import Product from "./Components/Product/Product";
 
 const MainRoutes = () => {
