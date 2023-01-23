@@ -13,7 +13,7 @@ const AuthContextProvider = ({ children }) => {
 
   const register = async (formData) => {
     try {
-      console.log(`${API_AUTH_REGISTER}`);
+      // console.log(`${API_AUTH_REGISTER}`);
       const res = await axios.post(`${API_AUTH_REGISTER}`, formData);
       console.log(res);
       navigate("/login");

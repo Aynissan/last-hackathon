@@ -43,7 +43,7 @@ export default function Register() {
 
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const [confirmPassword, setConfirmPassword] = React.useState("");
+  const [password_repeat, setConfirmPassword] = React.useState("");
   const [codeword, setCodeWord] = React.useState("");
   const [phone_number, setphone_number] = React.useState("");
 
@@ -51,7 +51,7 @@ export default function Register() {
     if (
       !email.trim() ||
       !password.trim() ||
-      !confirmPassword.trim() ||
+      !password_repeat.trim() ||
       !codeword.trim() ||
       !phone_number.trim()
     ) {
@@ -62,7 +62,7 @@ export default function Register() {
     let formData = new FormData();
     formData.append("email", email);
     formData.append("password", password);
-    formData.append("confirmPassword", confirmPassword);
+    formData.append("password_repeat", password_repeat);
     formData.append("codeword", codeword);
     formData.append("phone_number", phone_number);
     console.log(formData);
@@ -133,12 +133,12 @@ export default function Register() {
                 margin="normal"
                 required
                 fullWidth
-                name="confirmPassword"
+                name="password_repeat"
                 label="Confirm Password"
                 type="password"
-                id="confirm_password"
+                id="password_repeat"
                 autoComplete="current-password"
-                value={confirmPassword}
+                value={password_repeat}
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
               <TextField
