@@ -2,24 +2,30 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import logo3 from "../Navbar/images/Rectangle 1 (1).png";
-import back1 from "../Navbar/images/Ellipse 8 (1).png";
-import back2 from "../Navbar/images/Ellipse 9.png";
+
+import logo from "./images/logo2.png";
+import logo2 from "./images/logo.png.png";
+import logo3 from "./images/Rectangle 1 (1).png";
+import back1 from "./images/Ellipse 8 (1).png";
+import back2 from "./images/Ellipse 9.png";
 import { Container } from "@mui/system";
-import image1 from "../Navbar/images/image 5.jpg";
-import image2 from "../Navbar/images/image 10.png";
-import image3 from "../Navbar/images/image 7.jpg";
+import "./Home.css";
+import image1 from "./images/image 5.jpg";
+import image2 from "./images/image 10.png";
+import image3 from "./images/image 7.jpg";
+import { Link as RouterLink } from "react-router-dom";
+
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import { CardActionArea } from "@mui/material";
-import Carousel from "../Navbar/Carousel";
-import "./Home.css";
 
-export default function Home() {
+import Carousel from "./Carousel";
+
+export default function Navbar() {
   return (
-    <Container color="#E5E5E5" sx={{ flexGrow: 1 }}>
-      {/* <Box position="static" className="test">
+    <Container color="#E5E5E5" sx={{ flexGrow: 1, height: "100%" }}>
+      <Box position="static" className="test">
         <Toolbar>
           <Typography
             variant="h4"
@@ -31,21 +37,24 @@ export default function Home() {
           >
             copp.
           </Typography>
-          <Button
-            color="inherit"
-            sx={{
-              fontWeight: "700",
-              display: "flex",
-              flexDirection: "column",
-              marginTop: "4px",
-            }}
-          >
-            Главная
-            <img src={logo3} width="30px" />
-          </Button>
+          <RouterLink to="/">
+            <Button
+              color="inherit"
+              sx={{
+                fontWeight: "700",
+                display: "flex",
+                flexDirection: "column",
+                marginTop: "4px",
+              }}
+            >
+              Главная
+              <img src={logo3} width="30px" />
+            </Button>
+          </RouterLink>
           <Button sx={{ marginRight: "400px" }} color="inherit">
             Поиск
           </Button>
+
           <Button color="inherit">
             <img src={logo2} />
           </Button>
@@ -56,8 +65,12 @@ export default function Home() {
             </Button>
           </RouterLink>
         </Toolbar>
-      </Box> */}
-      {/* <Box
+
+      </Box>
+      <Box
+
+   
+
         sx={{
           height: "79px",
           width: "372px",
@@ -73,7 +86,7 @@ export default function Home() {
             variant="h4"
             sx={{ marginTop: "150px", fontWeight: "700" }}
           >
-            Покупай модную технику <img src={logo3} alt="" />
+            Покупай модную технику <img src={logo3} />
           </Typography>
           <Typography
             sx={{
@@ -104,10 +117,10 @@ export default function Home() {
           </Button>
         </Box>
         <Box className="back">
-          <img src={back1} alt="" />
+          <img src={back1} />
         </Box>
         <Box className="back1">
-          <img src={back2} alt="" />
+          <img src={back2} />
         </Box>
         <Box
           sx={{
@@ -130,12 +143,13 @@ export default function Home() {
       <Box
         sx={{
           marginTop: "150px",
+          marginBottom: "150px",
           display: "flex",
           justifyContent: "space-around",
           flexWrap: "wrap",
         }}
       >
-        <Card sx={{ maxWidth: 120 }}>
+        <Card sx={{ height: "400px" }}>
           <CardActionArea>
             <CardMedia component="img" image={image1} alt="green iguana" />
             <CardContent>
@@ -148,7 +162,7 @@ export default function Home() {
             </CardContent>
           </CardActionArea>
         </Card>
-        <Card sx={{ maxWidth: 200, height: 800 }}>
+        <Card sx={{ height: "300px" }}>
           <CardActionArea>
             <CardMedia component="img" image={image3} alt="green iguana" />
             <CardContent>
@@ -161,7 +175,7 @@ export default function Home() {
             </CardContent>
           </CardActionArea>
         </Card>
-        <Card sx={{ maxWidth: 200 }}>
+        <Card sx={{ height: "300px" }}>
           <CardActionArea>
             <CardMedia component="img" image={image2} alt="green iguana" />
             <CardContent>
@@ -174,7 +188,7 @@ export default function Home() {
             </CardContent>
           </CardActionArea>
         </Card>
-      </Box> */}
+      </Box> 
     </Container>
   );
 }
