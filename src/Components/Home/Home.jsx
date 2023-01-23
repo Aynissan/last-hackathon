@@ -1,24 +1,20 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-// import logo from "./images/logo2.png";
-// import logo2 from "./images/logo.png.png";
 import logo3 from "../Navbar/images/Rectangle 1 (1).png";
 import back1 from "../Navbar/images/Ellipse 8 (1).png";
 import back2 from "../Navbar/images/Ellipse 9.png";
 import { Container } from "@mui/system";
-import "./Home.css";
 import image1 from "../Navbar/images/image 5.jpg";
 import image2 from "../Navbar/images/image 10.png";
 import image3 from "../Navbar/images/image 7.jpg";
-import { Link as RouterLink } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import { CardActionArea } from "@mui/material";
 import Carousel from "../Navbar/Carousel";
+import "./Home.css";
 
 export default function Home() {
   return (
@@ -61,7 +57,7 @@ export default function Home() {
           </RouterLink>
         </Toolbar>
       </Box> */}
-      <Box
+      {/* <Box
         sx={{
           height: "79px",
           width: "372px",
@@ -178,7 +174,7 @@ export default function Home() {
             </CardContent>
           </CardActionArea>
         </Card>
-      </Box>
+      </Box> */}
     </Container>
   );
 }
