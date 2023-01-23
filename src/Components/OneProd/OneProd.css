@@ -1,0 +1,33 @@
+.card {
+  width: 20%;
+  border: 2px solid grey;
+}
+
+.card_img {
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+
+.lower_card_block {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.like {
+  width: 20%;
+}
+
+.izbr {
+  width: 20%;
+}
+
+.raiting {
+  width: 20%;
+}
