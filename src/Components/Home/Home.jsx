@@ -77,7 +77,7 @@ export default function Home() {
             variant="h4"
             sx={{ marginTop: "150px", fontWeight: "700" }}
           >
-            Покупай модную технику <img src={logo3} />
+            Покупай модную технику <img src={logo3} alt="" />
           </Typography>
           <Typography
             sx={{
@@ -108,10 +108,10 @@ export default function Home() {
           </Button>
         </Box>
         <Box className="back">
-          <img src={back1} />
+          <img src={back1} alt="" />
         </Box>
         <Box className="back1">
-          <img src={back2} />
+          <img src={back2} alt="" />
         </Box>
         <Box
           sx={{
