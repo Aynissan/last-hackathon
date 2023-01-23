@@ -13,7 +13,7 @@ import "./Navbar.css";
 import image1 from "./images/image 5.jpg";
 import image2 from "./images/image 10.png";
 import image3 from "./images/image 7.jpg";
-import { Link as RouterLink } from "react-router-dom";
+import { Link, Link as RouterLink, useNavigate } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -21,6 +21,7 @@ import { CardActionArea } from "@mui/material";
 // import Carousel from "./Carousel";
 
 export default function Navbar() {
+  const navigate = useNavigate();
   return (
     <Container color="#E5E5E5" sx={{ flexGrow: 1 }}>
       <Box position="static" className="test">
@@ -35,21 +36,25 @@ export default function Navbar() {
           >
             copp.
           </Typography>
-          <RouterLink to="/">
+          <Link to="/">
             <Button
-              color="inherit"
+              color="secondary"
               sx={{
-                fontWeight: "700",
+                fontWeight: "750",
                 display: "flex",
                 flexDirection: "column",
                 marginTop: "4px",
               }}
+              // onClick={navigate("/")}
             >
               Главная
               <img src={logo3} width="30px" />
             </Button>
-          </RouterLink>
-          <Button sx={{ marginRight: "400px" }} color="inherit">
+          </Link>
+          <Button
+            sx={{ marginRight: "400px", fontWeight: "750" }}
+            color="inherit"
+          >
             Поиск
           </Button>
 

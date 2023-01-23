@@ -4,27 +4,26 @@
 .img1 {
   z-index: -1;
   position: absolute;
-  width: 500px;
+  width: 700px;
 }
 .img2 {
   z-index: -1;
   position: absolute;
-  width: 400px;
-  height: 300px;
-  margin: -24px 100px 100px 635px;
+  width: 500px;
+  height: 500px;
+  margin: -24px 50px 200px 635px;
 }
-#formId {
+/* #formId {
   display: flex;
-  /* justify-content: space-between; */
+
   margin-top: 100px;
-  /* align-self: center; */
-  /* position: relative; */
+
   flex-direction: column;
   width: 400px;
   padding: 15px;
   margin: 5px;
   margin-left: 400px;
-}
+} */
 #PaymentForm {
   margin-top: 80px;
 }
