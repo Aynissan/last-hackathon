@@ -4,7 +4,11 @@ import Login from "./Components/Auth/Login";
 import Register from "./Components/Auth/Register";
 import PayVisa from "./Components/Cart/PayVisa";
 import Home from "./Components/Home/Home";
-import Product from "./Components/Product/Product";
+
+import OneProd from "./Components/OneProd/OneProd";
+import AddProd from "./Components/Product/AddProd";
+import ProductDetails from "./Components/Product/ProductDetails";
+import ProdList from "./Components/ProductList/ProdList";
 
 const MainRoutes = () => {
   return (
@@ -13,7 +17,10 @@ const MainRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/payvisa" element={<PayVisa />} />
-      <Route path="/prod" element={<Product />} />
+      <Route path="/prod" element={<ProductDetails />} />
+      <Route path="/prodList" element={<ProdList />} />
+      <Route path="/oneProd" element={<OneProd />} />
+      <Route path="/adminpage" element={<AddProd />} />
     </Routes>
   );
 };

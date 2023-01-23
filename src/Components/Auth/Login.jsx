@@ -16,7 +16,9 @@ import pic1 from "./assets/Ellipse 8.jpg";
 import { pic2 } from "./assets/Ellipse 9.svg";
 import pic3 from "./assets/Saly-38.svg";
 import "./Login.css";
-// import { ThemeProvider } from "@mui/material/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useContext } from "react";
+import { authContext } from "../Contexts/AuthContext";
 
 function Copyright(props) {
   return (
@@ -35,104 +37,123 @@ function Copyright(props) {
     </Typography>
   );
 }
+
+const theme = createTheme();
 const Login = () => {
+  const { login } = useContext(authContext);
+
+  const [email, setEmail] = React.useState("");
+
+  const [password, setPassword] = React.useState("");
+
+  function handleSubmit() {
+    if (!email.trim() || !password.trim()) {
+      alert("Заполните поля!");
+      return;
+    }
+
+    let formData = new FormData();
+    // обьект специальный для запроса в бэк из джс
+    formData.append("email", email);
+    formData.append("password", password);
+    login(formData, email);
+  }
   return (
-    // <ThemeProvider
-    // theme={theme}
-    // >
-    <div backgroung-image={pic1} className="content">
-      <div backgroung-image={pic3} className="content">
-        <img src={pic1} className="img1" alt="" />
-        <img src={pic3} className="img2" alt="" />
-        <Container component="main" maxWidth="xs">
-          <CssBaseline />
-          <Box
-            sx={{
-              marginTop: 8,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          ></Box>
-          <RouterLink to="/payvisa">
-            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-              <LockOutlinedIcon />
-            </Avatar>
-          </RouterLink>
-          {/* <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+    <ThemeProvider theme={theme}>
+      <div backgroung-image={pic1} className="content">
+        <div backgroung-image={pic3} className="content">
+          <img src={pic1} className="img1" alt="" />
+          <img src={pic3} className="img2" alt="" />
+          <Container component="main" maxWidth="xs">
+            <CssBaseline />
+            <Box
+              sx={{
+                marginTop: 8,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            ></Box>
+            <RouterLink to="/payvisa">
+              <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+                <LockOutlinedIcon />
+              </Avatar>
+            </RouterLink>
+            {/* <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar> */}
-          <Typography
-            component="h1"
-            variant="h5"
-            color="secondary"
-            fontWeight={700}
-          >
-            WELCOME TO COPP
-          </Typography>
-          <Box
-            component="form"
-            // onSubmit={handleSubmit}
-            noValidate
-            sx={{ mt: 1 }}
-          >
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              // value={email}
-              // onChange={(e) => setEmail(e.target.value)}
-            />
-            <TextField
+            <Typography
+              component="h1"
+              variant="h5"
               color="secondary"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              // value={password}
-              // onChange={(e) => setPassword(e.target.value)}
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="secondary" />}
-              label="SUBSCRIBE TO FREE"
-            />
-            <Button
-              color="secondary"
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-              // onClick={handleSubmit}
+              fontWeight={700}
             >
-              Log In
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
+              WELCOME TO COPP
+            </Typography>
+            <Box
+              component="form"
+              // onSubmit={handleSubmit}
+              noValidate
+              sx={{ mt: 1 }}
+            >
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                autoFocus
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <TextField
+                color="secondary"
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <FormControlLabel
+                control={<Checkbox value="remember" color="secondary" />}
+                label="SUBSCRIBE TO FREE"
+              />
+              <Button
+                color="secondary"
+                // type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+                onClick={handleSubmit}
+              >
+                Log In
+              </Button>
+              <Grid container>
+                <Grid item xs>
+                  <Link href="#" variant="body2">
+                    Forgot password?
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <RouterLink to="/register">
+                    <Typography>{"Don't have an account? Sign Up"}</Typography>
+                  </RouterLink>
+                </Grid>
               </Grid>
-              <Grid item>
-                <RouterLink to="/register">
-                  <Typography>{"Don't have an account? Sign Up"}</Typography>
-                </RouterLink>
-              </Grid>
-            </Grid>
-          </Box>
-          <Copyright sx={{ mt: 8, mb: 4 }} />
-        </Container>
+            </Box>
+            <Copyright sx={{ mt: 8, mb: 4 }} />
+          </Container>
+        </div>
       </div>
-    </div>
-    // </ThemeProvider>
+      //{" "}
+    </ThemeProvider>
   );
 };
 

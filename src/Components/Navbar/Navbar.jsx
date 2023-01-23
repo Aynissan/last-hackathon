@@ -18,7 +18,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import { CardActionArea } from "@mui/material";
-import Carousel from "./Carousel";
+// import Carousel from "./Carousel";
 
 export default function Navbar() {
   return (
@@ -35,21 +35,24 @@ export default function Navbar() {
           >
             copp.
           </Typography>
-          <Button
-            color="inherit"
-            sx={{
-              fontWeight: "700",
-              display: "flex",
-              flexDirection: "column",
-              marginTop: "4px",
-            }}
-          >
-            Главная
-            <img src={logo3} width="30px" />
-          </Button>
+          <RouterLink to="/">
+            <Button
+              color="inherit"
+              sx={{
+                fontWeight: "700",
+                display: "flex",
+                flexDirection: "column",
+                marginTop: "4px",
+              }}
+            >
+              Главная
+              <img src={logo3} width="30px" />
+            </Button>
+          </RouterLink>
           <Button sx={{ marginRight: "400px" }} color="inherit">
             Поиск
           </Button>
+
           <Button color="inherit">
             <img src={logo2} />
           </Button>
@@ -61,7 +64,7 @@ export default function Navbar() {
           </RouterLink>
         </Toolbar>
       </Box>
-      <Box
+      {/* <Box
         sx={{
           height: "79px",
           width: "372px",
@@ -179,7 +182,7 @@ export default function Navbar() {
             </CardContent>
           </CardActionArea>
         </Card>
-      </Box>
+      </Box> */}
     </Container>
   );
 }
