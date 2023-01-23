@@ -1,0 +1,21 @@
+.back {
+  /* width: "1000px";
+  height: "1000px"; */
+  border-radius: 0;
+  margin-left: 100px;
+  position: absolute;
+  z-index: -1;
+}
+
+.back1 {
+  /* width: "800";
+  height: "800"; */
+  border-radius: 0;
+  margin-left: 400px;
+  position: absolute;
+  z-index: -1;
+}
+
+.img2 {
+  background-color: none;
+}
