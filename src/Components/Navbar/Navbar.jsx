@@ -22,7 +22,7 @@ import Carousel from "./Carousel";
 
 export default function Navbar() {
   return (
-    <Container color="#E5E5E5" sx={{ flexGrow: 1 }}>
+    <Container color="#E5E5E5" sx={{ flexGrow: 1, height: "100%" }}>
       <Box position="static" className="test">
         <Toolbar>
           <Typography
@@ -134,12 +134,13 @@ export default function Navbar() {
       <Box
         sx={{
           marginTop: "150px",
+          marginBottom: "150px",
           display: "flex",
           justifyContent: "space-around",
           flexWrap: "wrap",
         }}
       >
-        <Card sx={{ maxWidth: 120 }}>
+        <Card sx={{ height: "400px" }}>
           <CardActionArea>
             <CardMedia component="img" image={image1} alt="green iguana" />
             <CardContent>
@@ -152,7 +153,7 @@ export default function Navbar() {
             </CardContent>
           </CardActionArea>
         </Card>
-        <Card sx={{ maxWidth: 200, height: 800 }}>
+        <Card sx={{ height: "300px" }}>
           <CardActionArea>
             <CardMedia component="img" image={image3} alt="green iguana" />
             <CardContent>
@@ -165,7 +166,7 @@ export default function Navbar() {
             </CardContent>
           </CardActionArea>
         </Card>
-        <Card sx={{ maxWidth: 200 }}>
+        <Card sx={{ height: "300px" }}>
           <CardActionArea>
             <CardMedia component="img" image={image2} alt="green iguana" />
             <CardContent>
