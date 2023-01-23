@@ -9,7 +9,7 @@ const AddProd = () => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="sm">
+      <Container maxWidth="md">
         <Typography variant="h1" component="h2" color="secondary">
           Admin Page
         </Typography>
@@ -21,6 +21,20 @@ const AddProd = () => {
           noValidate
           autoComplete="off"
         >
+          <TextField
+            required
+            id="filled-required"
+            label="Required"
+            defaultValue="Hello World"
+            variant="filled"
+          />
+          <TextField
+            required
+            id="filled-required"
+            label="Required"
+            defaultValue="Hello World"
+            variant="filled"
+          />
           <TextField
             required
             id="filled-required"
