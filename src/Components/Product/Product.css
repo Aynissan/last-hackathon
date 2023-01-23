@@ -88,8 +88,12 @@
 /* --------- lower block start ---------- */
 .lower_block {
   margin: 5% 0 10% 15%;
-  width: 100%;
+  width: 80%;
   /* display: flex; */
+}
+
+.charact {
+  width: 80%;
 }
 
 .charact_block {
@@ -106,7 +110,7 @@
 }
 
 .charact_right_block {
-  margin-left: 10%;
+  margin-left: 30%;
   width: 30%;
   display: flex;
   justify-content: space-between;
