@@ -52,6 +52,7 @@ export default function Navbar() {
           <Button sx={{ marginRight: "400px" }} color="inherit">
             Поиск
           </Button>
+
           <Button color="inherit">
             <img src={logo2} />
           </Button>
