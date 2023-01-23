@@ -65,6 +65,7 @@ export default function Register() {
     formData.append("confirmPassword", confirmPassword);
     formData.append("codeword", codeword);
     formData.append("phone_number", phone_number);
+    console.log(formData);
     register(formData);
   }
 
@@ -168,13 +169,13 @@ export default function Register() {
               />
               <Button
                 color="secondary"
-                type="submit"
+                // type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
                 onClick={handleSubmit}
               >
-                Log In
+                Sign up
               </Button>
               <Grid container>
                 <Grid item xs>

@@ -18,7 +18,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import { CardActionArea } from "@mui/material";
-// import Carousel from "./Carousel";
+import Carousel from "../Navbar/Carousel";
 
 export default function Home() {
   return (
@@ -121,7 +121,7 @@ export default function Home() {
             marginTop: "140px",
           }}
         >
-          {/* {<Carousel />} */}
+          {<Carousel />}
         </Box>
       </Box>
       <Box
