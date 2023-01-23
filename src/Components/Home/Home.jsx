@@ -1,8 +1,8 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+
 import logo from "./images/logo2.png";
 import logo2 from "./images/logo.png.png";
 import logo3 from "./images/Rectangle 1 (1).png";
@@ -14,10 +14,12 @@ import image1 from "./images/image 5.jpg";
 import image2 from "./images/image 10.png";
 import image3 from "./images/image 7.jpg";
 import { Link as RouterLink } from "react-router-dom";
+
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import { CardActionArea } from "@mui/material";
+
 import Carousel from "./Carousel";
 
 export default function Navbar() {
@@ -63,8 +65,12 @@ export default function Navbar() {
             </Button>
           </RouterLink>
         </Toolbar>
+
       </Box>
       <Box
+
+   
+
         sx={{
           height: "79px",
           width: "372px",
@@ -182,7 +188,7 @@ export default function Navbar() {
             </CardContent>
           </CardActionArea>
         </Card>
-      </Box>
+      </Box> 
     </Container>
   );
 }

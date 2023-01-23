@@ -19,8 +19,11 @@ const MainRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/payvisa" element={<PayVisa />} />
-      <Route path="/prod" element={<ProductDetails />} />
+      <Route path="/prodDet" element={<ProductDetails />} />
       <Route path="/prodList" element={<ProdList />} />
+
+      <Route path="/card" element={<OneProd />} />
+
       <Route path="/oneProd" element={<OneProd />} />
       <Route path="/adminpage" element={<AddProd />} />
     </Routes>

@@ -1,6 +1,10 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { API_AUTH_LOGIN, API_AUTH_REGISTER } from "../../helpers";
+import {
+  API_AUTH_LOGIN,
+  API_AUTH_REFRESH,
+  API_AUTH_REGISTER,
+} from "../../helpers";
 import axios from "axios";
 
 export const authContext = createContext();
@@ -37,6 +41,32 @@ const AuthContextProvider = ({ children }) => {
       setError(e);
     }
   };
+  const checkAuth = async () => {
+    let token = JSON.parse(localStorage.getItem("token"));
+
+    try {
+      const Auth = `Bearer ${token.access}`;
+
+      let res = await axios.post(`${API_AUTH_REFRESH}`, {
+        refresh: token.refresh,
+      });
+
+      localStorage.setItem(
+        "token",
+        JSON.stringify({ refresh: token.refresh, access: res.data.access })
+      );
+      let userName = localStorage.getItem("username");
+      setUser(userName);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      checkAuth();
+    }
+  }, []);
 
   let value = {
     user,
