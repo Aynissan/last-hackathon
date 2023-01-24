@@ -38,8 +38,7 @@ const ProductContextProvider = ({ children }) => {
         },
       };
       const res = await axios(
-        `
-        ${API_PRODUCTS}/${window.location.search}`,
+        `${API_PRODUCTS}/${window.location.search}`,
         config
       );
 
