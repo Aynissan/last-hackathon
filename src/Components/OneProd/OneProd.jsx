@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 // import * as React from "react";
 import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
@@ -8,13 +8,16 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import "./OneProd.css";
 import { useNavigate } from "react-router-dom";
+import { productContext } from "../Contexts/ProductContext";
 // import
 
 const OneProd = ({ item }) => {
   const navigate = useNavigate();
+
+  const { deleteProd } = useContext(productContext);
   return (
     <div>
-      <div className="card" onClick={() => navigate(`/prodDet/${item.id}`)}>
+      <div className="card">
         <img className="card_img" src={item.image} alt="" />
         <div className="container">
           <h4>{item.title}</h4>
@@ -22,12 +25,22 @@ const OneProd = ({ item }) => {
           <p>{item.price}</p>
           <div className="lower_card_block">
             <Stack direction="row" alignItems="center" spacing={1}>
-              <IconButton aria-label="delete" size="large">
+              <IconButton
+                aria-label="delete"
+                size="large"
+                onClick={() => deleteProd(item.id)}
+              >
                 <DeleteIcon fontSize="inherit" />
               </IconButton>
             </Stack>
-            <BorderColorIcon sx={{ marginTop: "5%" }} />
-            <FavoriteBorderIcon sx={{ marginTop: "5%" }} />
+            <BorderColorIcon
+              sx={{ marginTop: "5%" }}
+              onClick={() => navigate(`/edit/${item.id}`)}
+            />
+            <FavoriteBorderIcon
+              sx={{ marginTop: "5%" }}
+              onClick={() => navigate(`/prodDet/${item.id}`)}
+            />
             <FavoriteIcon sx={{ display: "none" }} />
             <img
               className="crsl"

@@ -9,6 +9,7 @@ import AddProd from "./Components/Product/AddProd";
 import ProductDetails from "./Components/Product/ProductDetails";
 import ProductList from "./Components/ProductList/ProductList";
 import Category from "./Components/Category/Category";
+import Edit from "./Components/Product/Edit";
 
 const MainRoutes = () => {
   return (
@@ -18,6 +19,8 @@ const MainRoutes = () => {
       <Route path="/register" element={<Register />} />
       <Route path="/payvisa" element={<PayVisa />} />
       <Route path="/prodDet/:id" element={<ProductDetails />} />
+      <Route path="/edit/:id" element={<Edit />} />
+
       <Route path="/prodList" element={<ProductList />} />
       <Route path="/card" element={<OneProd />} />
       <Route path="/oneProd" element={<OneProd />} />
