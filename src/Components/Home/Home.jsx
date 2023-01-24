@@ -19,13 +19,16 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import { CardActionArea } from "@mui/material";
+// import Toolbar from "@mui/material";
+import Toolbar from "@mui/material/Toolbar";
+// import { useNavigate } from "react-router-dom";
 
 import Carousel from "./Carousel";
 
 export default function Navbar() {
   return (
     <Container color="#E5E5E5" sx={{ flexGrow: 1, height: "100%" }}>
-      <Box position="static" className="test">
+      {/* <Box position="static" className="test">
         <Toolbar>
           <Typography
             variant="h4"
@@ -65,12 +68,8 @@ export default function Navbar() {
             </Button>
           </RouterLink>
         </Toolbar>
-
-      </Box>
+      </Box> */}
       <Box
-
-   
-
         sx={{
           height: "79px",
           width: "372px",
@@ -188,7 +187,7 @@ export default function Navbar() {
             </CardContent>
           </CardActionArea>
         </Card>
-      </Box> 
+      </Box>
     </Container>
   );
 }

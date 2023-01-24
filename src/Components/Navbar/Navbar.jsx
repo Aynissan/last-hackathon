@@ -6,9 +6,9 @@ import Button from "@mui/material/Button";
 import logo from "./images/logo2.png";
 import logo2 from "./images/logo.png.png";
 import logo3 from "./images/Rectangle 1 (1).png";
+import { useNavigate } from "react-router-dom";
 
 import { Link as RouterLink } from "react-router-dom";
-
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -35,10 +35,8 @@ export default function Navbar() {
               marginTop: "4px",
             }}
           >
-
             Главная
             <img src={logo3} width="30px" />
-
           </Button>
         </RouterLink>
         <Button sx={{ marginRight: "400px" }} color="inherit">

@@ -75,92 +75,96 @@ const AddProd = () => {
       <div backgroung-image={pic3} className="content">
         <img src={pic1} className="img1" alt="" />
         <img src={pic3} className="img2" alt="" />
-        <React.Fragment>
-          <CssBaseline />
-          <Container maxWidth="xl" sx={{ marginTop: "20px" }}>
-            <Typography
-              variant="h4"
-              component="div"
-              sx={{
-                flexGrow: 1,
-                color: "#1D242B",
-                fontWeight: "700",
-                marginLeft: "10px",
-                marginBottom: "10px",
-              }}
-            >
-              Admin Page
-            </Typography>
-
-            <Box
-              component="form"
-              sx={{
-                "& > :not(style)": { m: 1, width: "25ch" },
-              }}
-              noValidate
-              autoComplete="off"
-            >
-              <TextField
-                id="outlined-basic"
-                label="Title"
-                variant="outlined"
-                name="title"
-                value={product.title}
-                onChange={handleInp}
-              />
-              <TextField
-                id="outlined-basic"
-                label="Price"
-                variant="outlined"
-                type="number"
-                name="price"
-                value={product.price}
-                onChange={handleInp}
-              />
-            </Box>
-            <Box
-              component="form"
-              sx={{
-                "& > :not(style)": { m: 1, width: "25ch" },
-              }}
-              noValidate
-              autoComplete="off"
-            >
-              <TextField
-                id="outlined-basic"
-                label="Images"
-                variant="outlined"
-                type="file"
-              />
-              <TextField
-                id="outlined-select-currency"
-                select
-                label="Category"
-                helperText="Please select your category"
-                onChange={handleInp}
-                value={product.category}
-                name="category"
+        {user === "admin@admin.com" ? (
+          <React.Fragment>
+            <CssBaseline />
+            <Container maxWidth="xl" sx={{ marginTop: "20px" }}>
+              <Typography
+                variant="h4"
+                component="div"
+                sx={{
+                  flexGrow: 1,
+                  color: "#1D242B",
+                  fontWeight: "700",
+                  marginLeft: "10px",
+                  marginBottom: "10px",
+                }}
               >
-                {currencies.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </TextField>
-            </Box>
-            <Button
-              sx={{
-                m: 1,
-              }}
-              variant="outlined"
-              fullWidth
-              size="large"
-              onClick={handleSave}
-            >
-              ADD PRODUCT
-            </Button>
-          </Container>
-        </React.Fragment>
+                Admin Page
+              </Typography>
+
+              <Box
+                component="form"
+                sx={{
+                  "& > :not(style)": { m: 1, width: "25ch" },
+                }}
+                noValidate
+                autoComplete="off"
+              >
+                <TextField
+                  id="outlined-basic"
+                  label="Title"
+                  variant="outlined"
+                  name="title"
+                  value={product.title}
+                  onChange={handleInp}
+                />
+                <TextField
+                  id="outlined-basic"
+                  label="Price"
+                  variant="outlined"
+                  type="number"
+                  name="price"
+                  value={product.price}
+                  onChange={handleInp}
+                />
+              </Box>
+              <Box
+                component="form"
+                sx={{
+                  "& > :not(style)": { m: 1, width: "25ch" },
+                }}
+                noValidate
+                autoComplete="off"
+              >
+                <TextField
+                  id="outlined-basic"
+                  label="Images"
+                  variant="outlined"
+                  type="file"
+                />
+                <TextField
+                  id="outlined-select-currency"
+                  select
+                  label="Category"
+                  helperText="Please select your category"
+                  onChange={handleInp}
+                  value={product.category}
+                  name="category"
+                >
+                  {currencies.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </TextField>
+              </Box>
+              <Button
+                sx={{
+                  m: 1,
+                }}
+                variant="outlined"
+                fullWidth
+                size="large"
+                onClick={handleSave}
+              >
+                ADD PRODUCT
+              </Button>
+            </Container>
+          </React.Fragment>
+        ) : (
+          <>You are not admin</>
+        )}
       </div>
     </div>
   );
