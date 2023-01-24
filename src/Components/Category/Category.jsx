@@ -17,19 +17,108 @@ import image2 from "./imgs/pngwing 7.png";
 import image3 from "./imgs/pngwing 6.png";
 import Grid from "@mui/material/Grid";
 import { Container } from "@mui/system";
-import { Button, Input } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import {
+  Button,
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  Input,
+  InputAdornment,
+  Pagination,
+  Paper,
+  Radio,
+  RadioGroup,
+  TextField,
+} from "@mui/material";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { useContext } from "react";
+import { productContext } from "../Contexts/ProductContext";
+import { useState } from "react";
+import { useEffect } from "react";
+import SearchIcon from "@mui/icons-material/Search";
 
-export default function MediaControlCard() {
+export default function Category() {
+  const { products, getProducts, fetchByParams } = useContext(productContext);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const [search, setSearch] = useState(searchParams.get("q" || ""));
+
+  const [page, setPage] = useState(1);
+
+  const count = Math.ceil(products.length / 3);
+
   const theme = useTheme();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  useEffect(() => {
+    getProducts();
+    setSearchParams({
+      q: search,
+    });
+  }, [search]);
+
+  useEffect(() => {
+    getProducts();
+  }, [searchParams]);
+
+  function currentData() {
+    const begin = page - 1;
+    const end = begin + 3;
+    return products.slice(begin, end);
+  }
 
   return (
     <Container>
       <Box sx={{ marginTop: "80px", marginBottom: "100px" }}>
         <Button onClick={() => navigate("/")}>Главная></Button>
         <Button onClick={() => navigate("/login")}>Профиль></Button>
-        <Input sx={{ marginLeft: "50px" }} placeholder="Поиск" />
+        <Paper elevation={5} sx={{ p: 2 }}>
+          <TextField
+            id="input-with-icon-textfield"
+            label="Search..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+            }}
+            variant="standard"
+          />
+          <FormControl>
+            <FormLabel id="demo-radio-buttons-group-label">Type</FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              defaultValue="all"
+              name="radio-buttons-group"
+              onChange={(e) => fetchByParams("type", e.target.value)}
+            >
+              <FormControlLabel value="all" control={<Radio />} label="all" />
+              <FormControlLabel
+                value="phone"
+                control={<Radio />}
+                label="phone"
+              />
+              <FormControlLabel
+                value="laptop"
+                control={<Radio />}
+                label="laptop"
+              />
+              <FormControlLabel
+                value="watch"
+                control={<Radio />}
+                label="watch"
+              />
+            </RadioGroup>
+          </FormControl>
+        </Paper>
       </Box>
       <Grid
         container
@@ -175,6 +264,7 @@ export default function MediaControlCard() {
           />
         </Card>
       </Grid>
+      <Pagination count={count} page={page} onChange={(e, p) => setPage(p)} />
     </Container>
   );
 }
