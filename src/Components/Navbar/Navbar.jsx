@@ -8,7 +8,7 @@ import logo2 from "./images/logo.png.png";
 import logo3 from "./images/Rectangle 1 (1).png";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 
-export default function Navbar() {
+function Navbar() {
   const navigate = useNavigate();
 
   return (
@@ -59,3 +59,5 @@ export default function Navbar() {
     </Box>
   );
 }
+
+export default Navbar;
