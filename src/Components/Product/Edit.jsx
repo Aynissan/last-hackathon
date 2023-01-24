@@ -12,6 +12,7 @@ import "./AddProd.css";
 import MenuItem from "@mui/material/MenuItem";
 import { authContext } from "../Contexts/AuthContext";
 import { productContext } from "../Contexts/ProductContext";
+import { useNavigate, useParams } from "react-router-dom";
 
 const currencies = [
   {
@@ -32,26 +33,28 @@ const currencies = [
   },
 ];
 
-const AddProd = () => {
+const Edit = () => {
+  const navigate = useNavigate();
+  const params = useParams();
   const { user } = useContext(authContext);
-  const { addProducts, error, categories } = useContext(productContext);
+  const { addProducts, error, categories, getOneProd, editProd, oneProduct } =
+    useContext(productContext);
 
-  // useEffect(() => {
-  //   getCategories();
-  // }, []);
+  const [product, setProduct] = useState(oneProduct);
 
-  const [product, setProduct] = useState({
-    title: "",
-    price: "",
-    category: "",
-    image: "",
-  });
+  useEffect(() => {
+    getOneProd(params.id);
+  }, []);
+
+  useEffect(() => {
+    setProduct(oneProduct);
+  }, [oneProduct]);
 
   const handleInp = (e) => {
     if (e.target.name === "image") {
       setProduct({
         ...product,
-        // [e.target.name]: e.target.files[0],
+        [e.target.name]: e.target.files[0],
       });
     } else {
       setProduct({
@@ -67,7 +70,7 @@ const AddProd = () => {
     newProduct.append("price", product.price);
     newProduct.append("category", product.category);
     newProduct.append("image", product.image);
-    addProducts(newProduct);
+    editProd(params.id, newProduct);
   }
 
   return (
@@ -90,7 +93,7 @@ const AddProd = () => {
                   marginBottom: "10px",
                 }}
               >
-                Admin Page
+                Admin Page EDIT
               </Typography>
 
               <Box
@@ -103,15 +106,17 @@ const AddProd = () => {
               >
                 <TextField
                   id="outlined-basic"
-                  label="Title"
+                  // label="Title"
                   variant="outlined"
                   name="title"
+                  helperText="title"
                   value={product.title}
                   onChange={handleInp}
                 />
                 <TextField
                   id="outlined-basic"
-                  label="Price"
+                  // label="Price"
+                  helperText="price"
                   variant="outlined"
                   type="number"
                   name="price"
@@ -139,6 +144,7 @@ const AddProd = () => {
                   label="Category"
                   helperText="Please select your category"
                   onChange={handleInp}
+                  // defaultValue={product.category}
                   value={product.category}
                   name="category"
                 >
@@ -158,7 +164,7 @@ const AddProd = () => {
                 size="large"
                 onClick={handleSave}
               >
-                ADD PRODUCT
+                SAVE PRODUCT
               </Button>
             </Container>
           </React.Fragment>
@@ -169,4 +175,4 @@ const AddProd = () => {
     </div>
   );
 };
-export default AddProd;
+export default Edit;
