@@ -1,4 +1,8 @@
-import React, { createContext, useReducer } from "react";
+import axios from "axios";
+import React, { createContext, useReducer, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { API_CATEGORY, API_PRODUCTS } from "../../helpers";
 
 export const productContext = createContext();
 
@@ -22,8 +26,67 @@ function reducer(state = INIT_STATE, action) {
 
 const ProductContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
+  const navigate = useNavigate();
 
-  return <div></div>;
+  async function getProducts() {
+    try {
+      const token = JSON.parse(localStorage.getItem("token"));
+      const autho = `Bearer ${token.acces}`;
+      const config = {
+        headers: {
+          autho,
+        },
+      };
+      const res = await axios(
+        `${API_PRODUCTS}/${window.location.search}`,
+        config
+      );
+
+      dispatch({
+        type: "GET_PRODUCTS",
+        payload: res.data,
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  async function addProducts(newProd) {
+    try {
+      const token = JSON.parse(localStorage.getItem("token"));
+      const Authorization = `Bearer ${token.access}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.post(`${API_PRODUCTS}`, newProd, config);
+      console.log(res.data);
+      navigate("/products");
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  let values = {
+    products: state.products,
+    pages: state.pages,
+    categories: state.categories,
+    // error,
+
+    // getCategories,
+    addProducts,
+    getProducts,
+    // toggleLike,
+    // deleteProduct,
+  };
+
+  //   function deleteProd () {
+
+  //   }
+
+  return (
+    <productContext.Provider value={values}>{children}</productContext.Provider>
+  );
 };
 
 export default ProductContextProvider;

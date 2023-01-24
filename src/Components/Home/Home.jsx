@@ -14,6 +14,10 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import { CardActionArea } from "@mui/material";
+// import Toolbar from "@mui/material";
+import Toolbar from "@mui/material/Toolbar";
+// import { useNavigate } from "react-router-dom";
+
 import Carousel from "./Carousel";
 
 export default function Navbar() {

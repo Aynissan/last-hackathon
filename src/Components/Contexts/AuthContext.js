@@ -35,7 +35,7 @@ const AuthContextProvider = ({ children }) => {
       localStorage.setItem("username", email);
 
       setUser(email);
-      navigate("/");
+      navigate("/adminpage");
     } catch (e) {
       console.log(e);
       setError(e);
