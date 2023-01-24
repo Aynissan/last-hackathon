@@ -1,6 +1,7 @@
-import * as React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
+import { Button } from "@mui/material";
 import Container from "@mui/material/Container";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
@@ -9,27 +10,66 @@ import pic1 from "../Auth/assets/Ellipse 8.svg";
 import pic3 from "../Auth/assets/Saly-38.svg";
 import "./AddProd.css";
 import MenuItem from "@mui/material/MenuItem";
+import { authContext } from "../Contexts/AuthContext";
+import { productContext } from "../Contexts/ProductContext";
 
 const currencies = [
   {
-    value: "1",
+    value: "Phones",
     label: "Телефоны",
   },
   {
-    value: "2",
+    value: "Headphones",
     label: "Наушники",
   },
   {
-    value: "3",
+    value: "Laptops",
     label: "Ноутбуки",
   },
   {
-    value: "4",
+    value: "Others",
     label: "Другое",
   },
 ];
 
 const AddProd = () => {
+  const { user } = useContext(authContext);
+  const { addProducts, error, categories } = useContext(productContext);
+
+  // useEffect(() => {
+  //   getCategories();
+  // }, []);
+
+  const [product, setProduct] = useState({
+    title: "",
+    price: "",
+    category: "",
+    image: "",
+  });
+
+  const handleInp = (e) => {
+    if (e.target.name === "image") {
+      setProduct({
+        ...product,
+        [e.target.name]: e.target.files[0],
+      });
+    } else {
+      setProduct({
+        ...product,
+        [e.target.name]: e.target.value,
+      });
+    }
+  };
+
+  function handleSave() {
+    let newProduct = new FormData();
+    newProduct.append("title", product.title);
+    newProduct.append("price", product.price);
+    newProduct.append("category", product.category);
+    newProduct.append("image", product.image);
+    addProducts(newProduct);
+  }
+
   return (
     <div backgroung-image={pic1} className="content">
       <div backgroung-image={pic3} className="content">
@@ -60,12 +100,22 @@ const AddProd = () => {
               noValidate
               autoComplete="off"
             >
-              <TextField id="outlined-basic" label="Title" variant="outlined" />
+              <TextField
+                id="outlined-basic"
+                label="Title"
+                variant="outlined"
+                name="title"
+                value={product.title}
+                onChange={handleInp}
+              />
               <TextField
                 id="outlined-basic"
                 label="Price"
                 variant="outlined"
                 type="number"
+                name="price"
+                value={product.price}
+                onChange={handleInp}
               />
             </Box>
             <Box
@@ -87,6 +137,9 @@ const AddProd = () => {
                 select
                 label="Category"
                 helperText="Please select your category"
+                onChange={handleInp}
+                value={product.category}
+                name="category"
               >
                 {currencies.map((option) => (
                   <MenuItem key={option.value} value={option.value}>
@@ -95,6 +148,17 @@ const AddProd = () => {
                 ))}
               </TextField>
             </Box>
+            <Button
+              sx={{
+                m: 1,
+              }}
+              variant="outlined"
+              fullWidth
+              size="large"
+              onClick={handleSave}
+            >
+              ADD PRODUCT
+            </Button>
           </Container>
         </React.Fragment>
       </div>

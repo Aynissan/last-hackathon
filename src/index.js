@@ -6,14 +6,17 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AuthContextProvider from "./Components/Contexts/AuthContext";
+import ProductContextProvider from "./Components/Contexts/ProductContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <AuthContextProvider>
-        <App />
-      </AuthContextProvider>
+      <ProductContextProvider>
+        <AuthContextProvider>
+          <App />
+        </AuthContextProvider>
+      </ProductContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
