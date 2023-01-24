@@ -1,4 +1,6 @@
 import React, { createContext, useReducer } from "react";
+import axios from "axios";
+import { API_PRODUCTS } from "../../helpers";
 
 export const productContext = createContext();
 
@@ -14,7 +16,7 @@ function reducer(state = INIT_STATE, action) {
     case "GET_PRODUCTS":
       return {
         ...state,
-        products: action.payload.results,
+        products: action.payload,
         //   pages: Math.ceil(action.payload.count / 5),
       };
   }
@@ -26,17 +28,15 @@ const ProductContextProvider = ({ children }) => {
   async function getProducts() {
     try {
       const token = JSON.parse(localStorage.getItem("token"));
-      const autho = `Bearer ${token.acces}`;
+      const Authorization = `Bearer ${token.access}`;
       const config = {
         headers: {
-          autho,
+          Authorization,
         },
       };
-      const res = await axios(
-        `${API_PRODUCTS}/${window.location.search}`,
-        config
-      );
 
+      const res = await axios(`${API_PRODUCTS}`, config);
+      console.log(res);
       dispatch({
         type: "GET_PRODUCTS",
         payload: res.data,
@@ -46,7 +46,24 @@ const ProductContextProvider = ({ children }) => {
     }
   }
 
-  async function addProduct(newProd) {
+  async function addProducts(newProd) {
+    try {
+      const token = JSON.parse(localStorage.getItem("token"));
+      const autho = `Bearer ${token.access}`;
+      const config = {
+        headers: {
+          autho,
+        },
+      };
+      const res = await axios.post(`${API_PRODUCTS}`, newProd, config);
+      console.log(res.data);
+      navigate("/products");
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  async function deleteProd() {
     try {
       const token = JSON.parse(localStorage.getItem("token"));
       const autho = `Bearer ${token.acces}`;
@@ -55,19 +72,27 @@ const ProductContextProvider = ({ children }) => {
           autho,
         },
       };
-      const res = await axios.post(`${API_PRODUCTS}/`, newProd, config);
+      const res = await axios.delete(`{$API_PRODCUCTS}/{$id}/`, config);
       console.log(res.data);
-      navigate("/products");
     } catch (e) {
       console.log(e);
     }
   }
 
-  //   function deleteProd () {
+  let values = {
+    products: state.products,
+    getProducts,
+    addProducts,
+    deleteProd,
+  };
 
-  //   }
-
-  return <div></div>;
+  return (
+    <div>
+      <productContext.Provider value={values}>
+        {children}
+      </productContext.Provider>
+    </div>
+  );
 };
 
 export default ProductContextProvider;
