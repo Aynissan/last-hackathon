@@ -7,7 +7,7 @@ import Home from "./Components/Home/Home";
 import OneProd from "./Components/OneProd/OneProd";
 import AddProd from "./Components/Product/AddProd";
 import ProductDetails from "./Components/Product/ProductDetails";
-import ProdList from "./Components/ProductList/ProdList";
+import ProductList from "./Components/ProductList/ProductList";
 import Category from "./Components/Category/Category";
 
 const MainRoutes = () => {
@@ -17,10 +17,11 @@ const MainRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/payvisa" element={<PayVisa />} />
-      <Route path="/prodDet" element={<ProductDetails />} />
-      <Route path="/prodList" element={<ProdList />} />
+      <Route path="/prodDet/:id" element={<ProductDetails />} />
+      <Route path="/prodList" element={<ProductList />} />
       <Route path="/card" element={<OneProd />} />
       <Route path="/oneProd" element={<OneProd />} />
+
       <Route path="/adminpage" element={<AddProd />} />
       <Route path="/categ" element={<Category />} />
     </Routes>

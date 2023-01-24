@@ -18,7 +18,7 @@ function reducer(state = INIT_STATE, action) {
     case "GET_PRODUCTS":
       return {
         ...state,
-        products: action.payload.results,
+        products: action.payload,
         //   pages: Math.ceil(action.payload.count / 5),
       };
   }
@@ -31,17 +31,15 @@ const ProductContextProvider = ({ children }) => {
   async function getProducts() {
     try {
       const token = JSON.parse(localStorage.getItem("token"));
-      const autho = `Bearer ${token.acces}`;
+      const Authorization = `Bearer ${token.access}`;
       const config = {
         headers: {
-          autho,
+          Authorization,
         },
       };
-      const res = await axios(
-        `${API_PRODUCTS}/${window.location.search}`,
-        config
-      );
 
+      const res = await axios(`${API_PRODUCTS}`, config);
+      console.log(res);
       dispatch({
         type: "GET_PRODUCTS",
         payload: res.data,
@@ -67,22 +65,35 @@ const ProductContextProvider = ({ children }) => {
       console.log(e);
     }
   }
+
+  async function deleteProd() {
+    try {
+      const token = JSON.parse(localStorage.getItem("token"));
+      const autho = `Bearer ${token.acces}`;
+      const config = {
+        headers: {
+          autho,
+        },
+      };
+      const res = await axios.delete(`{$API_PRODCUCTS}/{$id}/`, config);
+      console.log(res.data);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   let values = {
     products: state.products,
+    getProducts,
+    addProducts,
+    deleteProd,
+
     pages: state.pages,
     categories: state.categories,
     // error,
 
     // getCategories,
-    addProducts,
-    getProducts,
-    // toggleLike,
-    // deleteProduct,
   };
-
-  //   function deleteProd () {
-
-  //   }
 
   return (
     <productContext.Provider value={values}>{children}</productContext.Provider>
