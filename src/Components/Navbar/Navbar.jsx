@@ -6,9 +6,11 @@ import Button from "@mui/material/Button";
 import logo from "./images/logo2.png";
 import logo2 from "./images/logo.png.png";
 import logo3 from "./images/Rectangle 1 (1).png";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const navigate = useNavigate();
+
   return (
     <Box position="static" className="test">
       <Toolbar>
@@ -36,7 +38,11 @@ export default function Navbar() {
             <img src={logo3} width="30px" />
           </Button>
         </RouterLink>
-        <Button sx={{ marginRight: "400px" }} color="inherit">
+        <Button
+          onClick={() => navigate("/categ")}
+          sx={{ marginRight: "400px" }}
+          color="inherit"
+        >
           Поиск
         </Button>
 
