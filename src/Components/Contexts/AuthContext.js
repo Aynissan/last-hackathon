@@ -47,14 +47,14 @@ const AuthContextProvider = ({ children }) => {
     try {
       const Auth = `Bearer ${token.access}`;
 
-      let res = await axios.post(`${API_AUTH_REFRESH}`, {
-        refresh: token.refresh,
-      });
+      // let res = await axios.post(`${API_AUTH_REFRESH}`, {
+      //   refresh: token.refresh,
+      // });
 
-      localStorage.setItem(
-        "token",
-        JSON.stringify({ refresh: token.refresh, access: res.data.access })
-      );
+      // localStorage.setItem(
+      //   "token",
+      //   JSON.stringify({ refresh: token.refresh, access: res.data.access })
+      // );
       let userName = localStorage.getItem("username");
       setUser(userName);
     } catch (e) {
