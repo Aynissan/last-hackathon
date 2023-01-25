@@ -1,0 +1,27 @@
+.title_products {
+  color: rgb(204, 128, 204);
+  text-align: center;
+  font-weight: 700;
+}
+.product_div {
+  display: flex;
+  width: 80%;
+  height: 100%;
+  /* justify-content: space-around; */
+}
+.main_div {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.div_pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.cont_prod {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}

@@ -9,7 +9,11 @@ import logo3 from "./images/Rectangle 1 (1).png";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
-function Navbar() {
+// import { Link as RouterLink } from "react-router-dom";
+import { authContext } from "../Contexts/AuthContext";
+
+export default function Navbar() {
+  const { user, logout } = React.useContext(authContext);
   const navigate = useNavigate();
 
   return (
@@ -33,6 +37,7 @@ function Navbar() {
               display: "flex",
               flexDirection: "column",
               marginTop: "4px",
+              color: "secondary",
             }}
             className="nav"
           >
@@ -43,11 +48,60 @@ function Navbar() {
         <Button
           onClick={() => navigate("/categ")}
           sx={{ marginRight: "400px" }}
-          color="inherit"
+          color="secondary"
+          fontWeight="800"
         >
           Поиск
         </Button>
-
+        <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          {/* {pages.map((page) => (
+              <Button
+                key={page}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                {page}
+              </Button>
+            ))} */}
+          {user ? (
+            <>
+              <Button
+                onClick={() => navigate("/products")}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                Products
+              </Button>
+              <Button
+                onClick={() => navigate("/adminpage")}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                Admin Page
+              </Button>
+              {user}
+              <Button
+                onClick={() => logout()}
+                sx={{ my: 2, color: "secondary", display: "block" }}
+              >
+                Logout
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button
+                onClick={() => navigate("/login")}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                Login
+              </Button>
+              <Button
+                onClick={() => navigate("/register")}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                Register
+              </Button>
+            </>
+          )}
+        </Box>
         <Button color="inherit">
           <img src={logo2} />
         </Button>
@@ -61,5 +115,3 @@ function Navbar() {
     </Box>
   );
 }
-
-export default Navbar;
