@@ -24,7 +24,7 @@ const MainRoutes = () => {
       <Route path="/card" element={<OneProd />} />
       <Route path="/oneProd" element={<OneProd />} />
       <Route path="/adminpage" element={<AddProd />} />
-      <Route path="/categ" element={<Category />} />
+      <Route path="/product" element={<Category />} />
     </Routes>
   );
 };

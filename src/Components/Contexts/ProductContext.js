@@ -42,7 +42,7 @@ const ProductContextProvider = ({ children }) => {
         `${API_PRODUCTS}${window.location.search}`,
         config
       );
-
+      console.log(`${API_PRODUCTS}${window.location.search}`, config);
       dispatch({
         type: "GET_PRODUCTS",
         payload: res.data,

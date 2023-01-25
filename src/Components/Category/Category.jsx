@@ -43,7 +43,7 @@ export default function Category() {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const [search, setSearch] = useState(searchParams.get("q" || ""));
+  const [search, setSearch] = useState(searchParams.get("search") || "");
 
   const [page, setPage] = useState(1);
 
@@ -59,7 +59,7 @@ export default function Category() {
   useEffect(() => {
     getProducts();
     setSearchParams({
-      q: search,
+      search: search,
     });
   }, [search]);
 
@@ -75,12 +75,13 @@ export default function Category() {
 
   return (
     <Container>
-      <Box sx={{ marginTop: "80px", marginBottom: "100px" }}>
+      {/* <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Button onClick={() => navigate("/")}>Главная></Button>
-      </Box>
-      <Button onClick={() => navigate("/login")}>Профиль></Button>
+        <Button onClick={() => navigate("/login")}>Профиль></Button>
+      </Box> */}
+
       <Box>
-        <Paper elevation={5} sx={{ p: 2 }}>
+        <Paper>
           <TextField
             id="input-with-icon-textfield"
             label="Search..."
@@ -95,7 +96,7 @@ export default function Category() {
             }}
             variant="standard"
           />
-          <FormControl>
+          {/* <FormControl>
             <FormLabel id="demo-radio-buttons-group-label">Категории</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
@@ -109,22 +110,22 @@ export default function Category() {
                 label="Другое"
               />
               <FormControlLabel
-                value="phone"
+                value="phones"
                 control={<Radio />}
                 label="Телефоны"
               />
               <FormControlLabel
-                value="headphone"
+                value="headphones"
                 control={<Radio />}
                 label="Наушники"
               />
               <FormControlLabel
-                value="laptop"
+                value="laptops"
                 control={<Radio />}
                 label="Ноутбуки"
               />
             </RadioGroup>
-          </FormControl>
+          </FormControl> */}
         </Paper>
         <Box
           sx={{

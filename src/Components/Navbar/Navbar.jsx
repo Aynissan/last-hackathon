@@ -46,7 +46,7 @@ export default function Navbar() {
           </Button>
         </RouterLink>
         <Button
-          onClick={() => navigate("/categ")}
+          onClick={() => navigate("/product")}
           sx={{ marginRight: "400px" }}
           color="secondary"
           fontWeight="800"
