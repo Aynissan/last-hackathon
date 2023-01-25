@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./Product.css";
 import phone from "./img/pngwing 9.svg";
@@ -25,6 +25,7 @@ import Comment from "./Comment";
 // import { useEffect } from "react";
 
 const ProductDetails = () => {
+  const [curImg, setCurImg] = useState(null);
   // const { oneProd, getOneProd } = useContext(prodContext);
 
   // useEffect(() => {
@@ -34,7 +35,7 @@ const ProductDetails = () => {
   return (
     <div>
       <div className="upper_block">
-        <img className="main_phone" src={phone} alt="" />
+        <img className="main_phone" src={curImg} alt="" />
         <img className="elips" src={elips} alt="" />
       </div>
       <div className="mid_block">
