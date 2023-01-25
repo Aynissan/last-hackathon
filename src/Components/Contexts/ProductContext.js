@@ -32,10 +32,10 @@ const ProductContextProvider = ({ children }) => {
   async function getProducts() {
     try {
       const token = JSON.parse(localStorage.getItem("token"));
-      const autho = `Bearer ${token.acces}`;
+      const Authorization = `Bearer ${token.acces}`;
       const config = {
         headers: {
-          autho,
+          Authorization,
         },
       };
       const res = await axios(

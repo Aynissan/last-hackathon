@@ -7,6 +7,7 @@ import logo from "./images/logo2.png";
 import logo2 from "./images/logo.png.png";
 import logo3 from "./images/Rectangle 1 (1).png";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
+import "./Navbar.css";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ function Navbar() {
               flexDirection: "column",
               marginTop: "4px",
             }}
+            className="nav"
           >
             Главная
             <img src={logo3} width="30px" />

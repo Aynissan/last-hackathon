@@ -36,6 +36,7 @@ import { productContext } from "../Contexts/ProductContext";
 import { useState } from "react";
 import { useEffect } from "react";
 import SearchIcon from "@mui/icons-material/Search";
+import OneProd from "../OneProd/OneProd";
 
 export default function Category() {
   const { products, getProducts, fetchByParams } = useContext(productContext);
@@ -79,6 +80,18 @@ export default function Category() {
       </Box>
       <Button onClick={() => navigate("/login")}>Профиль></Button>
       <Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-around",
+            marginRight: "30px",
+          }}
+        >
+          {products
+            ? currentData().map((item) => <OneProd key={item.id} item={item} />)
+            : null}
+        </Box>
         <Paper elevation={5} sx={{ p: 2 }}>
           <TextField
             id="input-with-icon-textfield"
@@ -95,28 +108,32 @@ export default function Category() {
             variant="standard"
           />
           <FormControl>
-            <FormLabel id="demo-radio-buttons-group-label">Type</FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label">Категории</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
               defaultValue="all"
               name="radio-buttons-group"
               onChange={(e) => fetchByParams("type", e.target.value)}
             >
-              <FormControlLabel value="all" control={<Radio />} label="all" />
+              <FormControlLabel
+                value="all"
+                control={<Radio />}
+                label="Другое"
+              />
               <FormControlLabel
                 value="phone"
                 control={<Radio />}
-                label="phone"
+                label="Телефоны"
+              />
+              <FormControlLabel
+                value="headphone"
+                control={<Radio />}
+                label="Наушники"
               />
               <FormControlLabel
                 value="laptop"
                 control={<Radio />}
-                label="laptop"
-              />
-              <FormControlLabel
-                value="watch"
-                control={<Radio />}
-                label="watch"
+                label="Ноутбуки"
               />
             </RadioGroup>
           </FormControl>
