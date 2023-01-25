@@ -61,7 +61,12 @@ const AuthContextProvider = ({ children }) => {
       console.log(e);
     }
   };
-
+  function logout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    setUser("");
+    navigate("/login");
+  }
   useEffect(() => {
     if (localStorage.getItem("token")) {
       checkAuth();
@@ -74,7 +79,7 @@ const AuthContextProvider = ({ children }) => {
 
     login,
     register,
-    // logout,
+    logout,
   };
   return <authContext.Provider value={value}>{children}</authContext.Provider>;
 };

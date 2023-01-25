@@ -17,6 +17,7 @@ import { CardActionArea } from "@mui/material";
 // import Toolbar from "@mui/material";
 import Toolbar from "@mui/material/Toolbar";
 // import { useNavigate } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 
 import Carousel from "./Carousel";
 
@@ -54,20 +55,23 @@ export default function Navbar() {
             Дешево, и без затруднений! Вы найдете большой выбор товаров, на
             которые всегда идут скидки!
           </Typography>
-          <Button
-            sx={{
-              backgroundColor: "#1D242B",
-              color: "white",
-              width: "180px",
-              height: "50px ",
-              fontSize: "12px",
-              fontWeight: 700,
-              borderRadius: "30px",
-              marginTop: "30px",
-            }}
-          >
-            продолжить
-          </Button>
+          <RouterLink to="/prodList">
+            {" "}
+            <Button
+              sx={{
+                backgroundColor: "#1D242B",
+                color: "white",
+                width: "180px",
+                height: "50px ",
+                fontSize: "12px",
+                fontWeight: 700,
+                borderRadius: "30px",
+                marginTop: "30px",
+              }}
+            >
+              продолжить
+            </Button>
+          </RouterLink>
         </Box>
         <Box className="back">
           <img src={back1} />

@@ -19,7 +19,7 @@ function reducer(state = INIT_STATE, action) {
       return {
         ...state,
         products: action.payload,
-        //   pages: Math.ceil(action.payload.count / 5),
+        pages: Math.ceil(action.payload.count / 5),
       };
   }
 }
