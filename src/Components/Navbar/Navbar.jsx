@@ -100,9 +100,11 @@ export default function Navbar() {
             </>
           )}
         </Box>
-        <Button color="inherit">
-          <img src={logo2} />
-        </Button>
+        <RouterLink to="/cart">
+          <Button color="inherit">
+            <img src={logo2} />
+          </Button>
+        </RouterLink>
 
         <RouterLink to="/login">
           <Button color="inherit">

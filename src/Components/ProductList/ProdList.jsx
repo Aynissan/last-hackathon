@@ -1,14 +1,14 @@
-import React, { useContext, useEffect } from "react";
-import { productContext } from "../Contexts/ProductContext";
+// import React, { useContext, useEffect } from "react";
+// import { productContext } from "../Contexts/ProductContext";
 
-const ProdList = () => {
-  const { products, getProducts } = useContext(productContext);
+// const ProdList = () => {
+//   const { products, getProducts } = useContext(productContext);
 
-  useEffect(() => {
-    getProducts();
-  }, []);
+//   useEffect(() => {
+//     getProducts();
+//   }, []);
 
-  return <div></div>;
-};
+//   return <div></div>;
+// };
 
-export default ProdList;
+// export default ProdList;

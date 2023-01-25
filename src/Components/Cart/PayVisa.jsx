@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
 import pic1 from "../Auth/assets/Ellipse 8.svg";
@@ -6,7 +6,9 @@ import pic1 from "../Auth/assets/Ellipse 8.svg";
 import pic3 from "../Auth/assets/Saly-38.svg";
 import "./PayVisa.css";
 import TextField from "@mui/material/TextField";
-
+import Button from "@mui/material/Button";
+import Alert from "@mui/material/Alert";
+// import { cartContext } from "../Contexts/CartContextProvider";
 export default class PaymentForm extends React.Component {
   state = {
     cvc: "",
@@ -24,7 +26,6 @@ export default class PaymentForm extends React.Component {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
-
   render() {
     return (
       <div backgroung-image={pic1} className="content">
@@ -80,6 +81,16 @@ export default class PaymentForm extends React.Component {
                 onChange={this.handleInputChange}
                 onFocus={this.handleInputFocus}
               />
+              <Button
+                sx={{
+                  m: 1,
+                }}
+                variant="outlined"
+                fullWidth
+                size="large"
+              >
+                Pay Now
+              </Button>
             </form>
           </div>
         </div>

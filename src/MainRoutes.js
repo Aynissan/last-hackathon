@@ -10,6 +10,7 @@ import ProductDetails from "./Components/Product/ProductDetails";
 import ProductList from "./Components/ProductList/ProductList";
 import Category from "./Components/Category/Category";
 import Edit from "./Components/Product/Edit";
+import Cart from "./Components/Cart/Cart";
 
 const MainRoutes = () => {
   return (
@@ -17,7 +18,7 @@ const MainRoutes = () => {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/payvisa" element={<PayVisa />} />
+      <Route path="cart/payvisa" element={<PayVisa />} />
       <Route path="/prodDet/:id" element={<ProductDetails />} />
       <Route path="/edit/:id" element={<Edit />} />
 
@@ -27,6 +28,7 @@ const MainRoutes = () => {
 
       <Route path="/adminpage" element={<AddProd />} />
       <Route path="/categ" element={<Category />} />
+      <Route path="/cart" element={<Cart />} />
     </Routes>
   );
 };

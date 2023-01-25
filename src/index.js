@@ -8,16 +8,19 @@ import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AuthContextProvider from "./Components/Contexts/AuthContext";
 import ProductContextProvider from "./Components/Contexts/ProductContext";
+import CartContextProvider from "./Components/Contexts/CartContextProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ProductContextProvider>
-        <AuthContextProvider>
-          <App />
-        </AuthContextProvider>
-      </ProductContextProvider>
+      <CartContextProvider>
+        <ProductContextProvider>
+          <AuthContextProvider>
+            <App />
+          </AuthContextProvider>
+        </ProductContextProvider>
+      </CartContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
