@@ -21,7 +21,6 @@ function reducer(state = INIT_STATE, action) {
 
         products: action.payload,
         pages: Math.ceil(action.payload.count / 5),
-
       };
   }
 }
@@ -34,7 +33,7 @@ const ProductContextProvider = ({ children }) => {
   async function getProducts() {
     try {
       const token = JSON.parse(localStorage.getItem("token"));
-      const Authorization = `Bearer ${token.acces}`;
+      const Authorization = `Bearer ${token.access}`;
       const config = {
         headers: {
           Authorization,
@@ -44,8 +43,7 @@ const ProductContextProvider = ({ children }) => {
         `${API_PRODUCTS}${window.location.search}`,
         config
       );
-
-
+      console.log(`${API_PRODUCTS}${window.location.search}`, config);
       dispatch({
         type: "GET_PRODUCTS",
         payload: res.data,
