@@ -20,11 +20,9 @@ const MainRoutes = () => {
       <Route path="/payvisa" element={<PayVisa />} />
       <Route path="/prodDet/:id" element={<ProductDetails />} />
       <Route path="/edit/:id" element={<Edit />} />
-
       <Route path="/prodList" element={<ProductList />} />
       <Route path="/card" element={<OneProd />} />
       <Route path="/oneProd" element={<OneProd />} />
-
       <Route path="/adminpage" element={<AddProd />} />
       <Route path="/categ" element={<Category />} />
     </Routes>
