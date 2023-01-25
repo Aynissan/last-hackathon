@@ -8,7 +8,7 @@ import logo2 from "./images/logo.png.png";
 import logo3 from "./images/Rectangle 1 (1).png";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 
-import { Link as RouterLink } from "react-router-dom";
+// import { Link as RouterLink } from "react-router-dom";
 import { authContext } from "../Contexts/AuthContext";
 
 export default function Navbar() {
@@ -36,6 +36,7 @@ export default function Navbar() {
               display: "flex",
               flexDirection: "column",
               marginTop: "4px",
+              color: "secondary",
             }}
           >
             Главная
@@ -45,7 +46,8 @@ export default function Navbar() {
         <Button
           onClick={() => navigate("/categ")}
           sx={{ marginRight: "400px" }}
-          color="inherit"
+          color="secondary"
+          fontWeight="800"
         >
           Поиск
         </Button>

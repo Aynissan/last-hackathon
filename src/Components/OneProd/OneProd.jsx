@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-// import * as React from "react";
 import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -9,16 +8,19 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import "./OneProd.css";
 import { useNavigate } from "react-router-dom";
 import { productContext } from "../Contexts/ProductContext";
-// import
 
 const OneProd = ({ item }) => {
   const navigate = useNavigate();
 
   const { deleteProd } = useContext(productContext);
   return (
-    <div>
+    <div className="main_div">
       <div className="card">
-        <img className="card_img" src={item.image} alt="" />
+        <img
+          className="card_img"
+          src={item.images.map((item) => item)}
+          alt=""
+        />
         <div className="container">
           <h4>{item.title}</h4>
           <p>{item.p}</p>

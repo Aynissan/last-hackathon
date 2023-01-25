@@ -19,7 +19,7 @@ function reducer(state = INIT_STATE, action) {
       return {
         ...state,
         products: action.payload,
-        //   pages: Math.ceil(action.payload.count / 5),
+        pages: Math.ceil(action.payload.count / 5),
       };
     case "GET_ONE_PROD":
       return {
@@ -43,7 +43,10 @@ const ProductContextProvider = ({ children }) => {
         },
       };
 
-      const res = await axios(`${API_PRODUCTS}`, config);
+      const res = await axios(
+        `${API_PRODUCTS}${window.location.search}`,
+        config
+      );
       console.log(res);
       dispatch({
         type: "GET_PRODUCTS",
