@@ -39,7 +39,7 @@ const ProductContextProvider = ({ children }) => {
         },
       };
       const res = await axios(
-        `${API_PRODUCTS}/${window.location.search}`,
+        `${API_PRODUCTS}${window.location.search}`,
         config
       );
 
@@ -63,7 +63,7 @@ const ProductContextProvider = ({ children }) => {
       };
       const res = await axios.post(`${API_PRODUCTS}`, newProd, config);
       console.log(res.data);
-      navigate("/products");
+      navigate("/prodList");
     } catch (e) {
       console.log(e);
     }
