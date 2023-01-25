@@ -18,6 +18,7 @@ function reducer(state = INIT_STATE, action) {
     case "GET_PRODUCTS":
       return {
         ...state,
+
         products: action.payload,
         pages: Math.ceil(action.payload.count / 5),
       };
