@@ -80,18 +80,6 @@ export default function Category() {
       </Box>
       <Button onClick={() => navigate("/login")}>Профиль></Button>
       <Box>
-        <Box
-          sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "space-around",
-            marginRight: "30px",
-          }}
-        >
-          {products
-            ? currentData().map((item) => <OneProd key={item.id} item={item} />)
-            : null}
-        </Box>
         <Paper elevation={5} sx={{ p: 2 }}>
           <TextField
             id="input-with-icon-textfield"
@@ -138,6 +126,18 @@ export default function Category() {
             </RadioGroup>
           </FormControl>
         </Paper>
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-around",
+            marginRight: "30px",
+          }}
+        >
+          {products
+            ? currentData().map((item) => <OneProd key={item.id} item={item} />)
+            : null}
+        </Box>
       </Box>
 
       <Pagination count={count} page={page} onChange={(e, p) => setPage(p)} />
